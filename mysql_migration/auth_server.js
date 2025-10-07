@@ -15,9 +15,9 @@ app.use(express.json());
 // Database connection
 const dbConfig = {
   host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'pembayaran_kampus_local',
+  user: process.env.DB_USER || 'adminkampus',
+  password: process.env.DB_PASSWORD || 'admin123123',
+  database: process.env.DB_NAME || 'pembayarankampus',
   port: process.env.DB_PORT || 3306
 };
 
@@ -372,7 +372,11 @@ app.post('/auth/logout', authenticateToken, (req, res) => {
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+  res.json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  });
 });
 
 // Test database connection
@@ -761,6 +765,11693 @@ app.post('/api/students', authenticateToken, async (req, res) => {
       phone,
       prodi,
       angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
+
+// POST /api/students - Create new student
+app.post('/api/students', authenticateToken, async (req, res) => {
+  let connection;
+  try {
+    const {
+      nim_kashif,
+      nim_dikti,
+      name,
+      email,
+      phone,
+      prodi,
+      angkatan,
+```
+
+```
+      SELECT 
+        s.id,
+        s.uuid,
+        s.nim_kashif,
+        s.nim_dikti,
+        s.name,
+        s.email,
+        s.phone,
+        s.prodi,
+        s.angkatan,
+        s.address,
+        s.status,
+        s.program_id,
+        p.name as program_name,
+        s.created_at,
+        s.updated_at
+      FROM students s 
+      LEFT JOIN programs p ON s.program_id = p.id
+      WHERE s.uuid = ? OR s.id = ?
+    `, [id, id]);
+    
+    await connection.end();
+    
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    
+    res.json(rows[0]);
+    
+  } catch (error) {
+    console.error('Error fetching student:', error);
+    res.status(500).json({ error: 'Failed to fetch student' });
+  }
+});
       address,
       status = 'active',
       program_id

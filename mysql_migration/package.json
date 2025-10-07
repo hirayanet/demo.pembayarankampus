@@ -6,7 +6,15 @@
   "scripts": {
     "start": "node auth_server.js",
     "dev": "nodemon auth_server.js",
-    "test": "curl http://localhost:3001/health"
+    "test": "curl http://localhost:3001/health",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop pembayarankampus-api",
+    "pm2:restart": "pm2 restart pembayarankampus-api",
+    "pm2:logs": "pm2 logs pembayarankampus-api",
+    "pm2:status": "pm2 status",
+    "pm2:monit": "pm2 monit",
+    "health": "curl http://localhost:3001/health",
+    "test-db": "curl http://localhost:3001/test-db"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
