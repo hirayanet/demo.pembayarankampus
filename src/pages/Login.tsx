@@ -37,7 +37,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
     setErrors(prev => ({ ...prev, general: '' }));
     try {
       // Change password via API
-      const response = await fetch('http://localhost:3001/auth/change-password', {
+      const response = await fetch('/api/auth/change-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
