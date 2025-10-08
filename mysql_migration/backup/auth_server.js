@@ -12,6 +12,14 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+// JSON parse error handler (returns 400 instead of crashing)
+app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+    return res.status(400).json({ error: 'Invalid JSON payload' });
+  }
+  next();
+});
+
 // Database connection
 const dbConfig = {
   host: process.env.DB_HOST || 'lmysql.railway.internal',
